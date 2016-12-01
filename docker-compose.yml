@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+    jupyterhub:
+        build:
+            context: .
+            args:
+                - http_proxy=$http_proxy
+                - https_proxy=$https_proxy
+        restart: always
+        ports:
+            - "8000:8000"
+        volumes:
+            - "/data/docker/jupyterhub:/opt/shared_nbs"
